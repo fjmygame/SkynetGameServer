@@ -173,7 +173,8 @@ skynet.start(function()
     	    local f = SOCKET[subcmd]
     	    f(...)
     	 else
-    	 	return skynet_util_docmd(CMD, session, string.lower(cmd), subcmd, ...)
+    	 	--return skynet_util_docmd(CMD, session, string.lower(cmd), subcmd, ...)
+    	 	return skynet.ret(skynet.pack(table.unpack(res)))
     	 end
     end)
 
