@@ -1,5 +1,5 @@
 local skynet = require "skynet"
-local cluster = require "skynet.cluster"
+local cluster = require "cluster"
 
 skynet.start(function()
 	-- query name "sdb" of cluster db.
@@ -11,20 +11,11 @@ skynet.start(function()
 	print(skynet.call(proxy, "lua", "SET", largekey, largevalue))
 	local v = skynet.call(proxy, "lua", "GET", largekey)
 	assert(largevalue == v)
-	skynet.send(proxy, "lua", "PING", "proxy")
 
 	print(cluster.call("db", sdb, "GET", "a"))
 	print(cluster.call("db2", sdb, "GET", "b"))
-	cluster.send("db2", sdb, "PING", "db2:longstring" .. largevalue)
 
 	-- test snax service
-	skynet.timeout(300,function()
-		cluster.reload {
-			db = false,	-- db is down
-			db3 = "127.0.0.1:2529"
-		}
-		print(pcall(cluster.call, "db", sdb, "GET", "a"))	-- db is down
-	end)
-	local pingserver = cluster.snax("db3", "pingserver")
+	local pingserver = cluster.snax("db", "pingserver")
 	print(pingserver.req.ping "hello")
 end)
