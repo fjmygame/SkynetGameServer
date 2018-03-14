@@ -6,7 +6,7 @@ local function read(path)
 	local p = io.open(path)
 	local text = p:read("*a")
 	text = text.."\n"
-	p:close
+	p:close()
 	return text
 end
 
