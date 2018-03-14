@@ -1,0 +1,9 @@
+login_success $1 {
+	request {
+	   id 0 : integer
+	}
+	response {
+	   errorcode 0 : integer
+	   msg 1 : string
+	}
+}
