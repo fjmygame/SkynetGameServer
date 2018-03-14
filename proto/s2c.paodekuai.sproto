@@ -1,9 +1,3 @@
-.package {
-	type 0 : integer
-	session 1 : integer
-}
-
-
 login_success 4 {
 	request {
 	   id 0 : integer
