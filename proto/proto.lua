@@ -14,9 +14,11 @@ end
 local function walk(config)
 	local res = ""
 	for k,v in pairs(config) do
+		print(v.sproto)
 		local realsproto = string.gsub(v.sproto,"$%d+",function(s)
                 return tonumber(split(s,"$")[1]) + v.basecode
 		end)
+		print(realsproto)
 		res = res..realsproto
 		print(realsproto)
 	end
