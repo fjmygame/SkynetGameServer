@@ -19,3 +19,5 @@ cpath = root.."cservice/?.so"
 -- daemon = "./skynet.pid"
 
 debugport = "8006"
+
+client_num = 3
