@@ -18,7 +18,7 @@ local function walk(config)
                 local num = tonumber(split(s,"$")[1]) + v.basecode
                 return tonumber(num)
 		end)
-		res = res..realsproto
+		res = res..v.sproto
 		print(realsproto)
 	end
 	return res

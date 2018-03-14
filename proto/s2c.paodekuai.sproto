@@ -1,4 +1,4 @@
-login_success $1 {
+login_success 1 {
 	request {
 	   id 0 : integer
 	}

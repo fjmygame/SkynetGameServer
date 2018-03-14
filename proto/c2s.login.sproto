@@ -1,4 +1,4 @@
-login_openid $1 {
+login_openid 1 {
 	request {
 	   id 0 : integer
 	}
