@@ -29,6 +29,7 @@ local function close_agent(fd,no_wait)
 end
 
 function SOCKET.open(fd,addr,sock_type)
+	print("SOCKET.open")
 	if not sock_type then
         sock_type = "BSD"
 	end
