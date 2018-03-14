@@ -31,7 +31,7 @@ function util.lua_docmd(cmdhandler,session,cmd,...)
         if session == 0 then
         	return table.unpack(res)
         else
-        	return skynet.ret(skynet.pack(table))
+        	return skynet.ret(skynet.pack(table.unpack(res)))
         end
 end
 
