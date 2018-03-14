@@ -17,3 +17,5 @@ lua_cpath = root .. "luaclib/?.so"
 -- snax_interface_g = "snax_g"
 cpath = root.."cservice/?.so"
 -- daemon = "./skynet.pid"
+
+debugport = 8006
