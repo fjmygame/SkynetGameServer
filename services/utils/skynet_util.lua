@@ -19,7 +19,7 @@ function util.lua_docmd(cmdhandler,session,cmd,...)
                 	local l_des = string.format("Unknow command %s", tostring(cmd))
                 	res = {false,l_des}
                 else
-                	local l_rst = xpcall(f,function() error("call cmd fail") end,...)
+                        	local l_rst = {xpcall(f,function() error("call cmd fail") end,...)}
                 	if not l_rst[1] then
                 		res = {false,"raise error"}
                 	else
