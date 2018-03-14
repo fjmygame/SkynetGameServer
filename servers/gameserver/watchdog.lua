@@ -116,6 +116,7 @@ function SOCKET.data(fd,msg)
 end
 
 function CMD.start(conf)
+	print("CMD.start")
 	local ok,err = pcall(skynet.call,gate,"lua","open",conf)
 	if not ok then
 		logger.err("call gate failed")
