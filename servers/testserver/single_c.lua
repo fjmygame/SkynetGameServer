@@ -2,7 +2,7 @@ local skynet = require "skynet"
 require "skynet.manager"
 
 local ok,testitem = pcall(require,skynet.getenv("testitem") or nil)
-print(skynet.getenv("testitem"))
+print(testitem)
 
 local MAX_CONNECT_TIME = 300
 
