@@ -27,6 +27,8 @@ function proto:init(gamename)
 	proto_config:init(gamename)
 	local c2s = walk(proto_config.c2s)
 	local s2c = walk(proto_config.s2c)
+	print(proto_config.c2s)
+	print(proto_config.s2c)
 
 	self.c2s = sprotoparser.parse(c2s)
 	self.s2c = sprotoparser.parse(s2c)
