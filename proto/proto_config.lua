@@ -30,12 +30,14 @@ function proto_config:init(gamename)
     		for _,g in ipairs(v.game) do
     			if g.name == gamename then
     				self.c2s[g.name] = {basecode=g.basecode,sproto=read("../proto/c2s."..g.name..".sproto")}
+    				print("aaaaaaaaaaaaa")
     				break
     			end
     		end
     	end
     	if v.name then
     		self.c2s[v.name] = {basecode=v.basecode,sproto=read("../proto/c2s."..v.name..".sproto")}
+    	    print("bbbbbb")
     	end
     end
 
@@ -45,17 +47,16 @@ function proto_config:init(gamename)
     		for _,g in ipairs(v.game) do
     			if g.name == gamename then
     				self.s2c[g.name] = {basecode=g.basecode,sproto=read("../proto/s2c."..g.name..".sproto")}
+    				print("ccccccccccc")
     				break
     			end
     		end
     	end
     	if v.name then
     		self.s2c[v.name] = {basecode=v.basecode,sproto=read("../proto/s2c."..v.name..".sproto")}
+    	    print("dddddddddd")
     	end
     end
-
-    print(#self.c2s)
-    print(#self.s2c)
 end
 
 return proto_config
