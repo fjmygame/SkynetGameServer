@@ -1,12 +1,13 @@
 local bson = require "bson"
-local socket = require "socket"
-local socketchannel	= require "socketchannel"
+local socket = require "skynet.socket"
+local socketchannel	= require "skynet.socketchannel"
 local skynet = require "skynet"
-local driver = require "mongo.driver"
+local driver = require "skynet.mongo.driver"
 local md5 =	require	"md5"
-local crypt = require "crypt"
+local crypt = require "skynet.crypt"
 local rawget = rawget
 local assert = assert
+local table = table
 
 local bson_encode =	bson.encode
 local bson_encode_order	= bson.encode_order
@@ -395,8 +396,24 @@ function mongo_collection:find(query, selector)
 	} ,	cursor_meta)
 end
 
-function mongo_cursor:sort(key_list)
-	self.__sortquery = bson_encode {['$query'] = self.__query, ['$orderby'] = key_list}
+local function unfold(list, key, ...)
+	if key == nil then
+		return list
+	end
+	local next_func, t = pairs(key)
+	local k, v = next_func(t)	-- The first key pair
+	table.insert(list, k)
+	table.insert(list, v)
+	return unfold(list, ...)
+end
+
+-- cursor:sort { key = 1 } or cursor:sort( {key1 = 1}, {key2 = -1})
+function mongo_cursor:sort(key, key_v, ...)
+	if key_v then
+		local key_list = unfold({}, key, key_v , ...)
+		key = bson_encode_order(table.unpack(key_list))
+	end
+	self.__sortquery = bson_encode {['$query'] = self.__query, ['$orderby'] = key}
 	return self
 end
 
@@ -538,10 +555,10 @@ function mongo_cursor:hasNext()
 		local pack
 		if self.__data == nil then
 			local query = self.__sortquery or self.__query
-			pack = driver.query(request_id, self.__flags, self.__collection.full_name, self.__skip, -self.__limit, query, self.__selector)
+			pack = driver.query(request_id, self.__flags, self.__collection.full_name, self.__skip, self.__limit, query, self.__selector)
 		else
 			if self.__cursor then
-				pack = driver.more(request_id, self.__collection.full_name, -self.__limit, self.__cursor)
+				pack = driver.more(request_id, self.__collection.full_name, self.__limit, self.__cursor)
 			else
 				-- no more
 				self.__document	= nil
@@ -557,10 +574,20 @@ function mongo_cursor:hasNext()
 
 		if ok then
 			if doc then
-				self.__document	= result.result
+				local doc = result.result
+				self.__document	= doc
 				self.__data	= result.data
 				self.__ptr = 1
 				self.__cursor =	cursor
+				local limit = self.__limit
+				if cursor and limit > 0 then
+					limit = limit - #doc
+					if limit <= 0 then
+						-- reach limit
+						self:close()
+					end
+					self.__limit = limit
+				end
 				return true
 			else
 				self.__document	= nil
@@ -598,11 +625,11 @@ function mongo_cursor:next()
 end
 
 function mongo_cursor:close()
-	-- todo: warning hasNext after close
 	if self.__cursor then
 		local sock = self.__collection.connection.__sock
 		local pack = driver.kill(self.__cursor)
 		sock:request(pack)
+		self.__cursor = nil
 	end
 end
 

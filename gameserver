@@ -1,4 +1,4 @@
 
-cd /home/skynet_sample/skynet
+cd skynet
 
-./skynet SkynetGameServer/servers/gameserver/config
+./skynet ../servers/gameserver/config

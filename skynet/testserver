@@ -1,4 +1,0 @@
-
-cd /home/skynet_sample/skynet
-
-./skynet SkynetGameServer/servers/testserver/config
