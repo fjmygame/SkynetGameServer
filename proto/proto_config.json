@@ -1,0 +1,4 @@
+{
+	"c2s":[{"basecode":0,"name":"login"}],
+	"s2c":[{"basecode":1000,"name":"login"}]
+}
