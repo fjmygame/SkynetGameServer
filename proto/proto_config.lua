@@ -1,6 +1,6 @@
 local proto_config = {}
 
-local json = require "json"
+local json = require "cjson"
 
 local function read(path)
 	local p = io.open(path)
