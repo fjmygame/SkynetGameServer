@@ -8,7 +8,7 @@ skynet.start(function()
     print("======Server start=======")
     skynet.newservice("console")
     skynet.newservice("debug_console",debugport)
-    skynet.newservice("mutil_c")    
+    skynet.newservice("multi_c")    
     
     skynet.exit()
 end)
