@@ -1,0 +1,1 @@
+package.path="SkynetGameServer/servers/testserver/?.lua;"..package.path
