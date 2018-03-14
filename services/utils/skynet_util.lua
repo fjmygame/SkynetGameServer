@@ -11,6 +11,7 @@ function util.lua_docmd(cmdhandler,session,cmd,...)
 		local f
 		if handler_type == "table" then
 			f = cmdhandler[cmd]
+                        print(f)
 		elseif handler_type == "function" then
 			f = cmdhandler
 		end
