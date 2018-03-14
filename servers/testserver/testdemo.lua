@@ -24,7 +24,7 @@ function testdemo:init(id)
 		self:login(id)
 	end
 	self.ctx_room_id = "room_cell_10"
-	self.switch_status(STATUS.LOGIN)
+	--self.switch_status(STATUS.LOGIN)
 end
 
 return testdemo

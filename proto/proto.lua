@@ -19,7 +19,6 @@ local function walk(config)
                 return tonumber(num)
 		end)
 		res = res..v.sproto
-		print(realsproto)
 	end
 	return res
 end
