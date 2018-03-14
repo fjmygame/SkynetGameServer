@@ -13,7 +13,7 @@ end
 local function readjson(path)
 	local f = io.open(path)
 	local data = p:read("*a")
-	f:close
+	f:close()
 	return data
 end
 
