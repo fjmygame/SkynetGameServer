@@ -5,7 +5,7 @@ local util = {}
 function util.lua_docmd(cmdhandler,session,cmd,...)
 	local res = {}
 	local handler_type = type(cmdhandler)
-	if cmdhandler ~= "table" and cmdhandler ~= "function" then
+	if handler_type ~= "table" and handler_type ~= "function" then
 	    print("service command handler type error,type:"..tostring(handler_type))
 	else
 		local f
