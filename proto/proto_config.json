@@ -1,4 +1,4 @@
 {
-	"c2s":[{"basecode":0,"name":"login"}],
-	"s2c":[{"basecode":1000,"name":"login"}]
+	"c2s":[{"basecode":0,"name":"login"},{"game":[{"basecode":4000,"name":"paodekuai"}]}],
+	"s2c":[{"basecode":1000,"name":"login"},{"game":[{"basecode":4000,"name":"paodekuai"}]}]
 }
