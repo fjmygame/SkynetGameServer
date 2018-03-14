@@ -4,10 +4,10 @@ local json = require "cjson"
 
 local function read(path)
 	local p = io.open(path)
-	print(path)
 	local text = p:read("*a")
 	text = text.."\n"
 	p:close()
+	print(text)
 	return text
 end
 
