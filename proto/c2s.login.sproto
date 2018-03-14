@@ -1,3 +1,9 @@
+.package {
+	type 0 : integer
+	session 1 : integer
+}
+
+
 login_openid 1 {
 	request {
 	   id 0 : integer
