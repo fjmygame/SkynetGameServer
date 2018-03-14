@@ -2,6 +2,7 @@ local skynet = require "skynet"
 require "skynet.manager"
 local netpack = require "netpack"
 local logger = require "logger"
+local skynet_util = require "skynet_util"
 
 local CMD = {}
 local SOCKET = {}
@@ -173,8 +174,7 @@ skynet.start(function()
     	    local f = SOCKET[subcmd]
     	    f(...)
     	 else
-    	 	--return skynet_util_docmd(CMD, session, string.lower(cmd), subcmd, ...)
-    	 	return skynet.ret(skynet.pack(table.unpack(res)))
+    	 	return skynet_util.lua_docmd(CMD, session, string.lower(cmd), subcmd, ...)
     	 end
     end)
 
