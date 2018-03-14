@@ -18,4 +18,4 @@ lua_cpath = root .. "luaclib/?.so"
 cpath = root.."cservice/?.so"
 -- daemon = "./skynet.pid"
 
-debugport = 8006
+debugport = "8006"
