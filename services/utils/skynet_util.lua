@@ -19,6 +19,7 @@ function util.lua_docmd(cmdhandler,session,cmd,...)
         if not f then
         	local l_des = string.format("Unknow command %s", tostring(cmd))
         	res = {false,l_des}
+                print(l_des)
         else
                 print("call cmd")
         	local l_rst = pcall(f,...)
