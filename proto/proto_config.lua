@@ -53,6 +53,9 @@ function proto_config:init(gamename)
     		self.s2c[v.name] = {basecode=v.basecode,sproto=read("../proto/s2c."..v.name..".sproto")}
     	end
     end
+
+    print(#self.c2s)
+    print(#self.s2c)
 end
 
 return proto_config

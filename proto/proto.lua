@@ -13,8 +13,6 @@ function split(s,sep)
 end
 
 local function walk(config)
-	print("walk")
-	print("walk")
 	local res = ""
 	for k,v in ipairs(config) do
 		print(v)
