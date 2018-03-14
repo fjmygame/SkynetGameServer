@@ -27,4 +27,8 @@ function testdemo:init(id)
 	--self.switch_status(STATUS.LOGIN)
 end
 
+function testdemo:update()
+	-- body
+end
+
 return testdemo
