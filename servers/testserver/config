@@ -21,3 +21,4 @@ cpath = root.."cservice/?.so"
 debugport = "8006"
 
 client_num = 3
+testitem = "testdemo"
