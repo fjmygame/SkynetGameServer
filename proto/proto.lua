@@ -8,6 +8,7 @@ function split(s,sep)
    local fields = {}
    local pattern = string.format("([^%s]+)",sep)
    string.gsub(s,pattern,function(c) fields[#fields+1]=c end)
+   print(fields)
    return fields
 end
 
@@ -26,8 +27,6 @@ function proto:init(gamename)
 	proto_config:init(gamename)
 	local c2s = walk(proto_config.c2s)
 	local s2c = walk(proto_config.s2c)
-	print(c2s)
-	print(s2c)
 
 	self.c2s = sprotoparser.parse(c2s)
 	self.s2c = sprotoparser.parse(s2c)

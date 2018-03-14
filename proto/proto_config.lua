@@ -7,7 +7,6 @@ local function read(path)
 	local text = p:read("*a")
 	text = text.."\n"
 	p:close()
-	print(text)
 	return text
 end
 
