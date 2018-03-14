@@ -14,6 +14,7 @@ function util.lua_docmd(cmdhandler,session,cmd,...)
 		elseif handler_type == "function" then
 			f = cmdhandler
 		end
+        end
         
         if not f then
         	local l_des = string.format("Unknow command %s", tostring(cmd))
