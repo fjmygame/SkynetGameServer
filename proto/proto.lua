@@ -8,18 +8,17 @@ function split(s,sep)
    local fields = {}
    local pattern = string.format("([^%s]+)",sep)
    string.gsub(s,pattern,function(c) fields[#fields+1]=c end)
-   print(fields)
    return fields
 end
 
 local function walk(config)
 	local res = ""
 	for k,v in pairs(config) do
-		print(v)
 		local realsproto = string.gsub(v.sproto,"$%d+",function(s)
                 return tonumber(split(s,"$")[1]) + v.basecode
 		end)
 		res = res..realsproto
+		print(realsproto)
 	end
 	return res
 end
