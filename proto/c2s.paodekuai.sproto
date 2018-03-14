@@ -1,5 +1,5 @@
 
-login_room 1 {
+login_room 2 {
 	request {
 	   id 0 : integer
 	}
