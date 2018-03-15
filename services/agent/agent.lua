@@ -187,6 +187,7 @@ local function send_client_func(name,...)
 end
 
 skynet.start(function()
+  print("XXXXXXXXXXXXXXXXXXXX")
    skynet.dispatch("lua", function(session, source, command, ...)
        return skynet_util.lua_docmd(CMD, session, string.lower(command),...)
    end)
