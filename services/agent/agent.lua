@@ -14,6 +14,7 @@ local last_recv_time = os.time
 local player = {}
 
 local CMD = {}
+local host
 
 local function post_queue( ... )
 	local msg = {...}
