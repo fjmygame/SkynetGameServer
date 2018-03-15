@@ -29,7 +29,6 @@ local function close_agent(fd,no_wait)
 end
 
 function SOCKET.open(fd,addr,sock_type)
-	print("SOCKET.open")
 	if not sock_type then
         sock_type = "BSD"
 	end
@@ -116,7 +115,6 @@ function SOCKET.data(fd,msg)
 end
 
 function CMD.start(conf)
-	print("CMD.start")
 	local ok,err = pcall(skynet.call,gate,"lua","open",conf)
 	if not ok then
 		logger.err("call gate failed")
@@ -172,7 +170,6 @@ end
 
 skynet.start(function() 
     skynet.dispatch("lua", function(session, source, cmd, subcmd, ...)
-    	 print(cmd,subcmd)
     	 if cmd == "socket" then
     	    local f = SOCKET[subcmd]
     	    f(...)
