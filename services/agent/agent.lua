@@ -93,7 +93,7 @@ local function dispatch_client_message(name,args,response)
    end
 
    local proto_head = futil.split(name,"_")[1]
-   local proto_name == string.sub(name, string.find(name,"_")+1,#name)
+   local proto_name = string.sub(name, string.find(name,"_")+1,#name)
    local l_base_info = player.get_base_info()
 
    local l_is_login = l_base_info and l_base_info.uid
