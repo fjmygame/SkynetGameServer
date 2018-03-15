@@ -1,5 +1,6 @@
 local skynet = require "skynet"
 local skynet_util = require "skynet_util"
+local sprotoloader = require "sprotoloader"
 local message_queue = {}
 local message_queue_fd
 local cur_message = nil
