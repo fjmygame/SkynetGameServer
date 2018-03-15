@@ -11,6 +11,8 @@ local last_recv_time = os.time
 
 local player = {}
 
+local CMD = {}
+
 local function post_queue( ... )
 	local msg = {...}
     table.insert(message_queue, msg)
