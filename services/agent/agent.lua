@@ -1,4 +1,5 @@
 local skynet = require "skynet"
+local skynet_util = require "skynet_util"
 local message_queue = {}
 local message_queue_fd
 local cur_message = nil
@@ -185,3 +186,15 @@ local function send_client_func(name,...)
 	return send_package(data)
 end
 
+skynet.start(function()
+   skynet.dispatch("lua", function(session, source, command, ...)
+       return skynet_util.lua_docmd(CMD, session, string.lower(command),...)
+   end)
+
+   skynet.fork(function() 
+      while true do
+         skynet.send(skynet.self(), "debug", "GC")
+         skynet.sleep(3000)
+      end
+   end)
+end)
