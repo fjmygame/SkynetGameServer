@@ -1,3 +1,4 @@
+local skynet = require "skynet"
 local message_queue = {}
 local message_queue_fd
 local cur_message = nil
