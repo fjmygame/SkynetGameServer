@@ -8,9 +8,6 @@ local skynet = require "skynet"
 local host = sproto.new(proto.s2c):host "package"
 local request = host:attach(sproto.new(proto.c2s))
 
-print(proto.s2c)
-print(proto.c2s)
-
 local client = {}
 client.__index = client
 
