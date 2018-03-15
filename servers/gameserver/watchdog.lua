@@ -12,6 +12,7 @@ local wswatchdogport = tonumber(skynet.getenv("wswatchdogport") or 0)
 local state
 local maxclient
 local client_number = 0
+local agent = {}
 
 local function close_agent(fd,no_wait)
 	local a = agent[fd]
