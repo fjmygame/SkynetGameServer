@@ -186,6 +186,27 @@ local function send_client_func(name,...)
 	return send_package(data)
 end
 
+skynet.register_protocol {
+  name = "client",
+  id = skynet.PTYPE_CLIENT,
+  unpack = function (msg, sz)
+    return host:dispatch(msg, sz)
+  end,
+  dispatch = function (_, _, type, ...)
+    if type == "REQUEST" then
+      last_recv_time = os.time()
+      post_queue(...)
+    else
+      assert(type == "RESPONSE")
+      error "This example doesn't support request client"
+    end
+  end
+}
+
+skynet.init(function()
+  -- body
+end)
+
 skynet.start(function()
   print("XXXXXXXXXXXXXXXXXXXX")
    skynet.dispatch("lua", function(session, source, command, ...)
