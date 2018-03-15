@@ -23,7 +23,7 @@ function _client_agent:closed()
 end
 
 function _client_agent:login(id)
-	-- body
+	local loginRes = self:request("login_room",{id="123"..id},true)
 end
 
 function block_func(x)
