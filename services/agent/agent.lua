@@ -126,26 +126,26 @@ local function send_package(pack)
 end
 
 local function heartbeat()
-   skynet.fork(function() 
-        while true do
-            if const.heartbeat.interval <= os.time() - last_recv_time then
-                send_package(send_request "heartbeat")
-            end
-            skynet.sleep(const.heartbeat.interval*100)
-        end
-   end)
+   -- skynet.fork(function() 
+   --      while true do
+   --          if const.heartbeat.interval <= os.time() - last_recv_time then
+   --              send_package(send_request "heartbeat")
+   --          end
+   --          skynet.sleep(const.heartbeat.interval*100)
+   --      end
+   -- end)
 
-   skynet.fork(function() 
-        while true do
-        	skynet.sleep(const.heartbeat.interval*100)
-            if os.time() - last_recv_time > const.heartbeat.timeout then
-                if client_fd and const.heartbeat.open == 1 then
-                    skynet.error("server disconnect:heartbeat timeout! ", client_fd or 0)
-                    skynet.call(".watchdog", "lua", "shutdow_socket", client_fd)
-                end
-            end
-        end
-   end)
+   -- skynet.fork(function() 
+   --      while true do
+   --      	skynet.sleep(const.heartbeat.interval*100)
+   --          if os.time() - last_recv_time > const.heartbeat.timeout then
+   --              if client_fd and const.heartbeat.open == 1 then
+   --                  skynet.error("server disconnect:heartbeat timeout! ", client_fd or 0)
+   --                  skynet.call(".watchdog", "lua", "shutdow_socket", client_fd)
+   --              end
+   --          end
+   --      end
+   -- end)
 end
 
 function CMD.start(gate,fd,addr)
