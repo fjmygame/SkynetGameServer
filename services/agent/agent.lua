@@ -149,6 +149,7 @@ end
 
 function CMD.start(gate,fd,addr)
    if not is_robot then
+      print("xxxxxxxxxxxxxxxxxxxxx")
       client_fd = fd
       client_addr = addr
       client_gate = gate
