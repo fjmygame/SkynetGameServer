@@ -3,8 +3,7 @@ local netpack = require "netpack"
 local socket = require "socket"
 local sproto = require "sproto"
 local sprotoloader = require "sprotoloader"
-
-local is_robot = ...
+local query_sharedata = require "query_sharedata"
 
 local WATCHDOG
 local host
