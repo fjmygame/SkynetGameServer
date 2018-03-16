@@ -162,6 +162,7 @@ function CMD.start(gate,fd,addr)
       send_request = host:attach(sprotoloader.load(2))
 
       player.pack_data = send_request
+      print("bbbbbbbbbbbbbbbbbbbbbbbbb")
    end
    heartbeat()
    skynet.fork(update)
