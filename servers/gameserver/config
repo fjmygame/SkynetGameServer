@@ -17,3 +17,5 @@ preload = "../servers/gameserver/preload/common_preload.lua"   -- run preload.lu
 -- snax_interface_g = "snax_g"
 cpath = root.."cservice/?.so"
 -- daemon = "./skynet.pid"
+
+gamename = "paodekuai"
