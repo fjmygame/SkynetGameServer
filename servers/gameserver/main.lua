@@ -8,6 +8,7 @@ skynet.start(function()
     
     skynet.newservice("logservice")
     skynet.newservice("debug_console",8001)
+    skynet.uniqueservice("protoloader")
     local watchdog = skynet.newservice("watchdog")
     skynet.call(watchdog,"lua", "start",{
           port=8200,
