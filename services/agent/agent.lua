@@ -157,13 +157,14 @@ function CMD.start(gate,fd,addr)
       player.fd = client_fd
       player.ip = 
 
+      print("bbbbbbbbbbbbbbbbbbbbbbbbb")
       skynet.call(gate,"lua","forward",fd)
 
       host = sprotoloader.load(1):host "package"
       send_request = host:attach(sprotoloader.load(2))
 
       player.pack_data = send_request
-      print("bbbbbbbbbbbbbbbbbbbbbbbbb")
+      print("ccccccccccccccccccccc")
    end
    heartbeat()
    skynet.fork(update)
