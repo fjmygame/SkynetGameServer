@@ -7,6 +7,7 @@ local cur_message = nil
 local message_queue_croutine_id
 local thread_id 
 
+local is_robot = ...
 local host
 local check_flag = 0
 local last_handle_time = nil
