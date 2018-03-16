@@ -147,6 +147,7 @@ local function heartbeat()
 end
 
 function CMD.start(gate,fd,addr)
+   print(is_robot,"aaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
    if not is_robot then
       client_fd = fd
       client_addr = addr
