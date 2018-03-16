@@ -158,6 +158,7 @@ function CMD.start(gate,fd,addr)
 
       skynet.call(gate,"lua","forward",fd)
 
+      print("cccccccccc")
       host = sprotoloader.load(1):host "package"
       print("aaaaaaaaaa")
       send_request = host:attach(sprotoloader.load(2))
