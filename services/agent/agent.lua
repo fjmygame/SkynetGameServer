@@ -18,6 +18,7 @@ local player = {}
 
 local CMD = {}
 
+local const
 
 local function post_queue( ... )
 	local msg = {...}
@@ -149,7 +150,6 @@ end
 
 function CMD.start(gate,fd,addr)
    if not is_robot then
-      print("xxxxxxxxxxxxxxxxxxxxx")
       client_fd = fd
       client_addr = addr
       client_gate = gate
@@ -159,7 +159,6 @@ function CMD.start(gate,fd,addr)
 
       skynet.call(gate,"lua","forward",fd)
 
-      print("cccccccccc")
       host = sprotoloader.load(1):host "package"
       send_request = host:attach(sprotoloader.load(2))
       player.pack_data = send_request
