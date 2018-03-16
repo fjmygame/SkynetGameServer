@@ -62,7 +62,7 @@ local function startqueue()
             			end
             		else
             			skynet.error(result)
-            			skynet.error(string.format("agent dispatch client message err:%s \n name:%s,args:%s,response:%s", result,cur_message[1],futil.toStr(cur_message[2]), futil.toStr(r)))
+            			-- skynet.error(string.format("agent dispatch client message err:%s \n name:%s,args:%s,response:%s", result,cur_message[1],futil.toStr(cur_message[2]), futil.toStr(r)))
             		end
             		check_flag = check_flag + 1
             		cur_message = nil
