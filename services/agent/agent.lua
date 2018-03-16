@@ -159,7 +159,9 @@ function CMD.start(gate,fd,addr)
       skynet.call(gate,"lua","forward",fd)
 
       host = sprotoloader.load(1):host "package"
+      print("aaaaaaaaaa")
       send_request = host:attach(sprotoloader.load(2))
+      print("bbbbbbbbbb")
       player.pack_data = send_request
       
    end
