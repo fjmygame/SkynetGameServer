@@ -4,6 +4,8 @@ local socket = require "socket"
 local sproto = require "sproto"
 local sprotoloader = require "sprotoloader"
 
+local is_robot = ...
+
 local WATCHDOG
 local host
 local send_request
