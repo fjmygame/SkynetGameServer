@@ -154,14 +154,12 @@ function CMD.start(gate,fd,addr)
       client_gate = gate
 
       player.fd = client_fd
-      player.ip = 
+      player.ip = "12.13.41.51"
 
       skynet.call(gate,"lua","forward",fd)
 
       host = sprotoloader.load(1):host "package"
-      print("ccccccccccccccccccccc")
       send_request = host:attach(sprotoloader.load(2))
-      print("dddddddddddddddddddddd")
       player.pack_data = send_request
       
    end
