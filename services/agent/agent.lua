@@ -150,6 +150,13 @@ local function heartbeat()
    -- end)
 end
 
+local function update()
+   while true do
+      skynet.sleep(100)
+      -- dispatchhandler.update(100)
+   end
+end
+
 function CMD.start(gate,fd,addr)
    if not is_robot then
       client_fd = fd
@@ -212,7 +219,6 @@ skynet.register_protocol {
 
 skynet.init(function()
   const = query_sharedata "const"
-  print(const.room_type)
 end)
 
 skynet.start(function()
