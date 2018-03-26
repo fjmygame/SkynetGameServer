@@ -203,6 +203,7 @@ skynet.register_protocol {
   name = "client",
   id = skynet.PTYPE_CLIENT,
   unpack = function (msg, sz)
+    print("xxxxxxxxxxxxxxxxxxxxx")
     return host:dispatch(msg, sz)
   end,
   dispatch = function (_, _, type, ...)

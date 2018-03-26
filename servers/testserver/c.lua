@@ -36,7 +36,6 @@ function client:send_request(name,args,func)
         self.session = self.session + 1
 	end
 	local str = self:request(name,args,self.session)
-	print(str)
 	self:send_package(str)
 	if func then
         self.cb[self.session] = func 
