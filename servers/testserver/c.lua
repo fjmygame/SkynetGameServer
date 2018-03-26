@@ -116,7 +116,7 @@ end
 
 function client:send_package(pack)
 	local package = string.pack(">s2",pack)
-	socket.write(self.fd, package)
+	socket.send(self.fd, package)
 end
 
 function client:exit()
