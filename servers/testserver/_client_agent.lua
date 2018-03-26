@@ -24,9 +24,9 @@ end
 
 function _client_agent:login(id)
 	print("login")
-	local loginRes = self:request("login_openid",{id="123"..id},false)
-	loginRes = self:request("login_openid",{id="123"..id},false)
-	loginRes = self:request("login_openid",{id="123"..id},false)
+	local loginRes = self:request("login_openid",{id="123"..id},true)
+	loginRes = self:request("login_openid",{id="123"..id},true)
+	loginRes = self:request("login_openid",{id="123"..id},true)
 	loginRes = self:request("login_openid",{id="123"..id},false)
 	loginRes = self:request("login_room",{id="123"..id},false)
 	loginRes = self:request("login_room",{id="123"..id},false)
