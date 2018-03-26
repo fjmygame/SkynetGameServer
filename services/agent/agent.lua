@@ -97,6 +97,7 @@ local function on_message_queue_block(msg)
 end
 
 local function dispatch_client_message(name,args,response)
+   print(name,args,response)
    if string.lower(name) == "heartbeat" then
        last_recv_time = os.time
        return nil
