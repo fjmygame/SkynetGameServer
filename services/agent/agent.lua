@@ -217,6 +217,7 @@ end)
 
 skynet.start(function()
    skynet.dispatch("lua", function(session, source, command, ...)
+       print(session,source,command)
        return skynet_util.lua_docmd(CMD, session, string.lower(command),...)
    end)
 
