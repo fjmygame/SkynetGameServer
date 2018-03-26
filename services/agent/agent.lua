@@ -169,8 +169,6 @@ function CMD.start(gate,fd,addr)
       host = sprotoloader.load(1):host "package"
       send_request = host:attach(sprotoloader.load(2))
       player.pack_data = send_request
-
-      print("XXXXXXXXXXXXXXXXXXXXX")
    end
    heartbeat()
    skynet.fork(update)
@@ -203,7 +201,6 @@ skynet.register_protocol {
   name = "client",
   id = skynet.PTYPE_CLIENT,
   unpack = function (msg, sz)
-    print("xxxxxxxxxxxxxxxxxxxxx")
     return host:dispatch(msg, sz)
   end,
   dispatch = function (_, _, type, ...)
