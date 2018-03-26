@@ -68,6 +68,7 @@ function client:init(handler)
 	self.request_handler = setmetatable({},{__index=handler})
 	self.cb = {}
 	self.fd = socket.open(self.address,self.port)
+	print(self.fd)
 	skynet.fork(dispatch,self)
 end
 
@@ -116,7 +117,7 @@ end
 
 function client:send_package(pack)
 	local package = string.pack(">s2",pack)
-	socket.send(self.fd, package)
+	socket.write(self.fd, package)
 end
 
 function client:exit()

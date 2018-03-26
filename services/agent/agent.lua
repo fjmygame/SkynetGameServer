@@ -165,6 +165,7 @@ function CMD.start(gate,fd,addr)
 
       player.fd = client_fd
       player.ip = "12.13.41.51"
+      print(fd)
 
       host = sprotoloader.load(1):host "package"
       send_request = host:attach(sprotoloader.load(2))
