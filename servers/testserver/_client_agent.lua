@@ -31,6 +31,7 @@ function _client_agent:login(id)
 	loginRes = self:request("login_room",{id="123"..id},true)
 	loginRes = self:request("login_room",{id="123"..id},true)
 	loginRes = self:request("login_room",{id="123"..id},true)
+	print("loginRes")
 	print(loginRes)
 end
 
