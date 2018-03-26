@@ -211,6 +211,7 @@ skynet.register_protocol {
 
 skynet.init(function()
   const = query_sharedata "const"
+  print(const.room_type)
 end)
 
 skynet.start(function()
