@@ -198,6 +198,7 @@ local function send_client_func(name,...)
 end
 
 skynet.register_protocol {
+  print("XXXXXXXXXXXXXXXXXXXXXXXXXx")
   name = "client",
   id = skynet.PTYPE_CLIENT,
   unpack = function (msg, sz)
