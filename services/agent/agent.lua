@@ -1,6 +1,7 @@
 local skynet = require "skynet"
 local skynet_util = require "skynet_util"
 local sprotoloader = require "sprotoloader"
+local query_sharedata require "query_sharedata"
 local message_queue = {}
 local message_queue_fd
 local cur_message = nil
@@ -209,7 +210,7 @@ skynet.register_protocol {
 }
 
 skynet.init(function()
-  -- body
+  const = query_sharedata "const"
 end)
 
 skynet.start(function()
