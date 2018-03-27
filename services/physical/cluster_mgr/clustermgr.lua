@@ -67,6 +67,7 @@ local function noticeExistedClusters(allConf)
         	if not ok then
         	else
         	end
+        end
     end
 end
 
