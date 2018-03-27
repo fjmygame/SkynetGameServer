@@ -31,13 +31,13 @@ local function dispatch_client_message(name,args,response)
 
    local proto_head = futil.split(name,"_")[1]
    local proto_name = string.sub(name, string.find(name,"_")+1,#name)
-   local l_base_info = player.get_base_info()
+   -- local l_base_info = player.get_base_info()
 
-   local l_is_login = l_base_info and l_base_info.uid
-   if not l_is_login and (proto_head ~= login and proto_head ~= "gamelogin") then
-        logger.err("player send cmd before login")
-        return nil
-   end
+   -- local l_is_login = l_base_info and l_base_info.uid
+   -- if not l_is_login and (proto_head ~= login and proto_head ~= "gamelogin") then
+   --      logger.err("player send cmd before login")
+   --      return nil
+   -- end
 
    local r = dispatchhandler.on_client_request(proto_head,proto_name,args)
    if response then
@@ -188,6 +188,10 @@ player = {
     fd = -1,
     is_robot = is_robot or false
 }
+
+function player.get_base_info()
+    return ""
+end
 
 local function call_sink_func(sink_name,prefor_name,...)
 	return dispatchhandler.on_sink_request(sink_name,prefor_name,...)
