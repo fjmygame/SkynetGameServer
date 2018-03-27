@@ -47,7 +47,9 @@ local function startqueue()
             if #message_queue == 0 then
                 thread_id = coroutine.running()
                 skynet.wait()
+                print("YYYYYYYYYYYYYYY")
             else
+              print("XXXXXXXXXXXXXXX")
             	cur_message = table.remove(message_queue,1)
             	local ok,result,r = pcall(dispatch_client_message, cur_message[1], cur_message[2], cur_message[3])
             	if message_queue_croutine_id and message_queue_croutine_id ~= coroutine.running() or l_fd ~= client_fd then
