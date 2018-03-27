@@ -21,6 +21,6 @@ cpath = root.."cservice/?.so"
 gamename = "paodekuai"
 
 --cluster_redis
-cluster_redis_host = 127.0.0.1
+cluster_redis_host = "127.0.0.1"
 cluster_redis_port = 6379
 cluster_redis_auth = nil
