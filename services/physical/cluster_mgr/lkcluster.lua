@@ -52,7 +52,7 @@ function cluster.mcall(node, address, ...)
     local count = #names
     local self_co = coroutine.running()
     local results = {}
-    if _,node in ipairs(names) do
+    for _,node in ipairs(names) do
         skynet.fork(function(...)  
            results[node] = cluster.rawcall(node, address, ...) or {false, "timeout"}
            if count == 1 then skynet.wakeup(self_co) else count = count - 1 end
