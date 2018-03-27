@@ -22,11 +22,12 @@ local CMD = {}
 local const
 
 local function post_queue( ... )
-	local msg = {...}
+	  local msg = {...}
     table.insert(message_queue, msg)
     if thread_id then
     	skynet.wakeup(thread_id)
     	thread_id = nil
+      print("wakeup")
     end
 end
 
@@ -203,7 +204,6 @@ skynet.register_protocol {
   name = "client",
   id = skynet.PTYPE_CLIENT,
   unpack = function (msg, sz)
-    print("YYYYYYYYY")
     return host:dispatch(msg, sz)
   end,
   dispatch = function (_, _, type, ...)
