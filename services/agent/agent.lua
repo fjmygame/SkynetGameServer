@@ -21,6 +21,29 @@ local CMD = {}
 
 local const
 
+local function dispatch_client_message(name,args,response)
+   print(name,args,response)
+   if string.lower(name) == "heartbeat" then
+       last_recv_time = os.time
+       return nil
+   end
+
+   local proto_head = futil.split(name,"_")[1]
+   local proto_name = string.sub(name, string.find(name,"_")+1,#name)
+   local l_base_info = player.get_base_info()
+
+   local l_is_login = l_base_info and l_base_info.uid
+   if not l_is_login and (proto_head ~= login and proto_head ~= "gamelogin") then
+        logger.err("player send cmd before login")
+        return nil
+   end
+
+   local r = dispatchhandler.on_client_request(proto_head,proto_name,args)
+   if response then
+       return response(r),r
+   end
+end
+
 local function post_queue( ... )
 	  local msg = {...}
     table.insert(message_queue, msg)
@@ -47,9 +70,7 @@ local function startqueue()
             if #message_queue == 0 then
                 thread_id = coroutine.running()
                 skynet.wait()
-                print("YYYYYYYYYYYYYYY")
             else
-              print("XXXXXXXXXXXXXXX")
             	cur_message = table.remove(message_queue,1)
             	local ok,result,r = pcall(dispatch_client_message, cur_message[1], cur_message[2], cur_message[3])
             	if message_queue_croutine_id and message_queue_croutine_id ~= coroutine.running() or l_fd ~= client_fd then
@@ -97,29 +118,6 @@ local function on_message_queue_block(msg)
    -- logger.err("message_queue blocked, cur_message:%s, traceback:%s", msg[1], )
 
    skynet.call(".watchdog", "lua", "shutdow_socket", client_fd, "request timeout")
-end
-
-local function dispatch_client_message(name,args,response)
-   print(name,args,response)
-   if string.lower(name) == "heartbeat" then
-       last_recv_time = os.time
-       return nil
-   end
-
-   local proto_head = futil.split(name,"_")[1]
-   local proto_name = string.sub(name, string.find(name,"_")+1,#name)
-   local l_base_info = player.get_base_info()
-
-   local l_is_login = l_base_info and l_base_info.uid
-   if not l_is_login and (proto_head ~= login and proto_head ~= "gamelogin") then
-        logger.err("player send cmd before login")
-        return nil
-   end
-
-   local r = dispatchhandler.on_client_request(proto_head,proto_name,args)
-   if response then
-   	   return response(r),r
-   end
 end
 
 local function send_package(pack)
