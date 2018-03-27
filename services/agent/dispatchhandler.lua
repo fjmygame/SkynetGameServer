@@ -60,8 +60,10 @@ function dispatchhandler.init(p)
 end
 
 function dispatchhandler.on_client_request(proto_head, proto_name, args)
+	local module_name = module_config.forward_map[proto_head] or proto_head
+	local module = dispatchhandler.get_module(module_name)
 	if module_config.forward_map[proto_head] then
-		module:on_client_request(proto_head,proto_name,args)
+		module:on_client_request_foreignCMD(proto_head,proto_name,args)
 	else
 	    module:on_client_request(proto_name,args)
 	end
