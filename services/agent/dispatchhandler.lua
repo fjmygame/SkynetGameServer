@@ -40,6 +40,7 @@ end
 
 function dispatchhandler.create_module(module_name)
 	local m = module_config[module_name]
+	print(m)
 	modules[module_name] = m.new(player)
 end
 
@@ -61,7 +62,6 @@ end
 
 function dispatchhandler.on_client_request(proto_head, proto_name, args)
 	local module_name = module_config.forward_map[proto_head] or proto_head
-	print(module_name)
 	local module = dispatchhandler.get_module(module_name)
 	if module_config.forward_map[proto_head] then
 		module:on_client_request_foreignCMD(proto_head,proto_name,args)
