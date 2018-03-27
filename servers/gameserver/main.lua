@@ -5,7 +5,7 @@ local skynet = require "skynet"
 skynet.start(function()
     -- 启动函数里调用Skynet API开发各种服务
     print("======Server start=======")
-    
+    skynet.newservice("clustermgr")
     skynet.newservice("logservice")
     skynet.newservice("debug_console",8001)
     skynet.uniqueservice("protoloader")
