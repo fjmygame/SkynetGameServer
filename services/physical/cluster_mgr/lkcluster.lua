@@ -42,7 +42,7 @@ end
 function cluster.broadcast(names, address, ...)
     if not names or #names == 0 then return end
 
-    if _,node in ipairs(names) do
+    for _,node in ipairs(names) do
         cluster.send(node, address, ...)
     end
 end
