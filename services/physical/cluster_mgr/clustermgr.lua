@@ -52,7 +52,7 @@ local function regSelf()
     skynet.timeout(2000,regSelf)
     local now = redis_now()
     for _,config_key in pairs(config_keys) do
-        redisDb.hset(config_key, nodeName, string.format("%s;%s", nodeEndpoint, now))
+        redisDb:hset(config_key, nodeName, string.format("%s;%s", nodeEndpoint, now))
     end
 end
 
