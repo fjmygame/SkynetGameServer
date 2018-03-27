@@ -3,6 +3,7 @@ local skynet_util = require "skynet_util"
 local sprotoloader = require "sprotoloader"
 local query_sharedata = require "query_sharedata"
 local futil = require "futil"
+local dispatchhandler = require "dispatchhandler"
 local message_queue = {}
 local message_queue_fd
 local cur_message = nil
