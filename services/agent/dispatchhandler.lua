@@ -5,7 +5,9 @@ local modules = {}
 local player
 
 local module_config = {
-	login = require("login.login_sink")
+	login = require("login.login_sink"),
+
+	forward_map = {}
 }
 
 function dispatchhandler.on_socket_close()
@@ -45,8 +47,12 @@ function dispatchhandler.update()
 	-- body
 end
 
-function dispatchhandler.get_module()
-	-- body
+function dispatchhandler.get_module(module_name)
+	if not modules[module_name] then
+		dispatchhandler:create_module(module_name)
+	end
+
+	return module_name[module_name]
 end
 
 function dispatchhandler.init(p)
