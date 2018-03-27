@@ -20,6 +20,10 @@ cpath = root.."cservice/?.so"
 
 gamename = "paodekuai"
 
+nodename = "pandamjserver"
+nodeport = 7123
+nodeip = "127.0.0.1"
+
 --cluster_redis
 cluster_redis_host = "127.0.0.1"
 cluster_redis_port = 6379
