@@ -18,7 +18,7 @@ local function readConf()
      end
 end
 
-local function mysql_util.init()
+function mysql_util.init()
 	for dbname,tbWorker in pairs(mysql_dbservice) do
         local lwkService = tbWorker.wkService
         for k,svrname in pairs(lwkService) do
