@@ -30,3 +30,9 @@ cluster_redis_port = 6379
 cluster_redis_auth = nil
 
 mysqldb="db_player"
+
+db_player_svr = ".playerdb"
+db_player_host = "127.0.0.1"
+db_player_port = 3306
+db_player_user = "root"
+db_player_pwd = ""
