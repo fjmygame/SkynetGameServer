@@ -108,7 +108,8 @@ function cache_util.call(dbname, cache_name, args)
             return sqlcache
         else
             local sql = join_sql_util(cacheconf.sql, parttern, args)
-            local sqlcache = mysql_util.query(dbname,sql,cacheconf.divide)
+            local qyresult = mysql_util.query(dbname,sql,cacheconf.divide)
+            print(qyresult)
 
             if cacheconf.clearrd then
                 redis_util.excute_with_gsub(cacheconf.clearrd,args,redispt,parttern)
