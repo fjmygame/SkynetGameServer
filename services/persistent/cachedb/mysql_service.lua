@@ -45,9 +45,11 @@ local function do_sql(session, address, sql, ...)
    local result = mysql_handle:query(sql)
 
    if mysql_err(result,sql) then
+   	   result = nil
    end
 
    if session ~= 0 then
+   	  print("sql response")
       skynet.ret(skynet.pack(result))
    end
 
