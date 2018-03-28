@@ -43,7 +43,6 @@ local function do_sql(session, address, sql, ...)
 
    local start_time = skynet.time()
    local result = mysql_handle:query(sql)
-   print(result)
 
    if mysql_err(result,sql) then
    end

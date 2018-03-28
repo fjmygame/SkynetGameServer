@@ -110,6 +110,7 @@ function cache_util.call(dbname, cache_name, args)
             local sql = join_sql_util(cacheconf.sql, parttern, args)
             print(sql)
             local qyresult = mysql_util.query(dbname,sql,cacheconf.divide)
+            print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX")
             print(qyresult)
 
             if cacheconf.clearrd then
