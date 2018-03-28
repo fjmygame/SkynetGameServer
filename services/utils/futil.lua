@@ -6,8 +6,7 @@ function futil.split(s, sp)
   
     local temp = s  
     local len = 0  
-    while true do  
-    	print(temp)
+    while true and temp do  
         len = string.find(temp, sp)  
         if temp and len ~= nil then  
             local result = string.sub(temp, 1, len-1)  
