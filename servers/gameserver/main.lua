@@ -10,7 +10,6 @@ skynet.start(function()
     skynet.newservice("logservice")
     skynet.newservice("debug_console",8001)
 
-    cache_util.init()
     skynet.uniqueservice("protoloader")
     skynet.newservice("constloader")
     local watchdog = skynet.newservice("watchdog")
@@ -19,5 +18,6 @@ skynet.start(function()
           maxclient=100,
           nodelay=true
           })
+    cache_util.init()
     skynet.exit()
 end)
