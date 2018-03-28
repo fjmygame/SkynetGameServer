@@ -9,6 +9,7 @@ local mysql_util = {}
 local mysql_dbservice = {}
 
 local function readConf()
+	print(skynet.getenv("mysqldb"))
      local mysql_dbname = futil.split(skynet.getenv("mysqldb"),";")
 
      for k,dbname in pairs(mysql_dbname) do
