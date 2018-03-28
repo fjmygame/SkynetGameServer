@@ -1,4 +1,6 @@
 local skynet = require "skynet"
+local cache_util = require "cache_util"
+
 local dispatchhandler = {}
 
 local modules = {}
@@ -68,6 +70,8 @@ function dispatchhandler.on_client_request(proto_head, proto_name, args)
 	else
 	    module:on_client_request(proto_name,args)
 	end
+
+	cache_util.call("db_player", "get_user_info", {uid=123})
 end
 
 function dispatchhandler.on_sink_request(module_name, proto_name, ...)
