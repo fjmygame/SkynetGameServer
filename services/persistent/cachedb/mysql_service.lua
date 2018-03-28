@@ -12,10 +12,10 @@ local mysql_handle
 
 local function readconf()
     mysql_conf.dbname = mysql_dbname
-    mysql_conf.host = ""
-    mysql_conf.port = 120
-    mysql_conf.user = "root"
-    mysql_conf.pwd = 12345
+    mysql_conf.host = skynet.getenv(string.format("%s_host",mysql_dbname))
+    mysql_conf.port = skynet.getenv(string.format("%s_port",mysql_dbname))
+    mysql_conf.user = skynet.getenv(string.format("%s_user",mysql_dbname))
+    mysql_conf.pwd = skynet.getenv(string.format("%s_pwd",mysql_dbname))
 end
 
 local function make_conn()
