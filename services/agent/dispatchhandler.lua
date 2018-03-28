@@ -42,8 +42,7 @@ end
 
 function dispatchhandler.create_module(module_name)
 	local m = module_config[module_name]
-	print(m)
-	modules[module_name] = m.new(player)
+	-- modules[module_name] = m.new(player)
 end
 
 function dispatchhandler.update()
