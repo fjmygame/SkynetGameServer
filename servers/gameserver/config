@@ -43,4 +43,4 @@ db_player_pwd = ""
 redis_svr=".redisdb"
 redis_host="127.0.0.1"
 redis_port="6037"
-redis_auth=""
+redis_auth=nil
