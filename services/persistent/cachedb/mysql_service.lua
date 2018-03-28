@@ -54,6 +54,17 @@ local function do_sql(session, address, sql, ...)
    do_sql_stat(sql,start_time,skynet.time())
 end
 
+local function is_conn_err(errmsg)
+    if not errmsg then
+   	   return false
+   	end
+
+   	if type(errmsg) == "string" and string.find(errmsg, "Connect to") then
+   		return true
+   	end
+    return false
+end
+
 skynet.start(function()
 	skynet.dispatch("lua", function(session,address,sql,...)
         local ok,err = pcall(do_sql, session, address, sql, ...)
