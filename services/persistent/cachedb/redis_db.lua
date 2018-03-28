@@ -27,7 +27,7 @@ local cmdStat = {
        cnt = 0,
        time = 0.0,
        avg = 0.0,
-    }
+    },
     cmds = {},
 }
 
