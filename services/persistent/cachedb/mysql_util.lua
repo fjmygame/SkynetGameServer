@@ -46,7 +46,7 @@ function mysql_util.query(dbname,sql,divide)
     --分表处理
     if divide then
     end
-
+    print("call dbservice")
     return skynet.call(wkService[wkIndex], "lua", sql)
 end
 
