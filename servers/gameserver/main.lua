@@ -1,5 +1,6 @@
 
 local skynet = require "skynet"
+local cache_util = require "cache_util"
 
 -- 启动服务(启动函数)
 skynet.start(function()
@@ -8,6 +9,8 @@ skynet.start(function()
     skynet.newservice("clustermgr")
     skynet.newservice("logservice")
     skynet.newservice("debug_console",8001)
+
+    cache_util.init()
     skynet.uniqueservice("protoloader")
     skynet.newservice("constloader")
     local watchdog = skynet.newservice("watchdog")

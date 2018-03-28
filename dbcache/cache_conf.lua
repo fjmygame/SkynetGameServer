@@ -1,5 +1,5 @@
 local skynet = require "skynet"
-local lfs = require "lfs"
+-- local lfs = require "lfs"
 
 local gameid = skynet.getenv "gameid"
 
@@ -9,7 +9,7 @@ local master_gameid = {}
 
 local cache_conf = 
 {
-	db_game = require "db_game"
+	db_player = require "db_player"
 }
 
 local function recur_travese_conf(conf,game_id)
