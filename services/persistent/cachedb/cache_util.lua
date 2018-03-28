@@ -52,7 +52,7 @@ function cache_util.call(dbname, cache_name, args)
 
 		return ret
 	end
-
+    print(dbcache,cacheconf,cacheconf.sql)
 	if cacheconf.sql then
 		if cacheconf.queryrd and cacheconf.cacherd then
             --查询缓存
