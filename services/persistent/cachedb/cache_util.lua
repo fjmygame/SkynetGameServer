@@ -52,7 +52,6 @@ function cache_util.call(dbname, cache_name, args)
 
 		return ret
 	end
-    print(dbcache,cacheconf,cacheconf.sql)
 	if cacheconf.sql then
 		if cacheconf.queryrd and cacheconf.cacherd then
             --查询缓存
@@ -110,7 +109,9 @@ function cache_util.call(dbname, cache_name, args)
             local sql = join_sql_util(cacheconf.sql, parttern, args)
             local qyresult = mysql_util.query(dbname,sql,cacheconf.divide)
             for k,v in pairs(qyresult) do
-                print(k,v)
+                for _,t in pairs(v) do
+                	print(_,t)
+                end
             end
 
             if cacheconf.clearrd then
