@@ -54,7 +54,9 @@ function cache_util.call(dbname, cache_name, args)
 	end
     print(dbcache,cacheconf,cacheconf.sql)
 	if cacheconf.sql then
+		print("XXXXXXXXXXxxx")
 		if cacheconf.queryrd and cacheconf.cacherd then
+			print("YYYYYYYYYYYYY")
             --查询缓存
             local qyresult = redis_util.query_with_gsub(cacheconf.queryrd, args, redispt, parttern)
             if qyresult and (type(qyresult) ~= "table" or #qyresult > 0) then
@@ -82,6 +84,7 @@ function cache_util.call(dbname, cache_name, args)
 
             return redis_util:query_with_gsub(cacheconf.queryrd, args, redispt, parttern)
         elseif cacheconf.cachekey then
+        	print("zzzzzzzzzzzzzzz")
         	local rdskey = args and string.gsub(cacheconf.cachekey, parttern, args) or cacheconf
         	local rdscache = redis_util.querycmd("GET", rdskey)
         	if rdscache then
@@ -107,6 +110,7 @@ function cache_util.call(dbname, cache_name, args)
 
             return sqlcache
         else
+        	print("jjjjjjjjjjjjjj")
             local sql = join_sql_util(cacheconf.sql, parttern, args)
             local qyresult = mysql_util.query(dbname,sql,cacheconf.divide)
             print(qyresult)
