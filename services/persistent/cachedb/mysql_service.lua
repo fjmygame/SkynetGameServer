@@ -48,6 +48,7 @@ local function do_sql(session, address, sql, ...)
    	   result = nil
    end
 
+   print(session)
    if session ~= 0 then
    	  print("sql response")
       skynet.ret(skynet.pack(result))
