@@ -23,3 +23,5 @@ end
 for i=1,#master_gameid do
    recur_travese_conf(cache_conf,master_gameid[i])
 end
+
+return cache_conf
