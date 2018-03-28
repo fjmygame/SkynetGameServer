@@ -34,6 +34,14 @@ local function make_conn()
     return conn
 end
 
+local function mysql_err(res,sql)
+   if res.badresult == true then
+   	   --logger.error()
+   	   return true
+   end
+   return false
+end
+
 local function do_sql(session, address, sql, ...)
    if not mysql_handle then
    	   mysql_handle = make_conn();
