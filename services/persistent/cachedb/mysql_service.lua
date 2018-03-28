@@ -67,6 +67,7 @@ end
 
 skynet.start(function()
 	skynet.dispatch("lua", function(session,address,sql,...)
+		print(session,address,sql)
         local ok,err = pcall(do_sql, session, address, sql, ...)
         if not ok then
             if is_conn_err(err) then
