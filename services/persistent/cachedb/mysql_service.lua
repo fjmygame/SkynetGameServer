@@ -56,7 +56,6 @@ local function do_sql(session, address, sql, ...)
    	   result = nil
    end
 
-   print(session)
    if session ~= 0 then
    	  print("sql response")
       skynet.ret(skynet.pack(result))
@@ -78,7 +77,6 @@ end
 
 skynet.start(function()
 	skynet.dispatch("lua", function(session,address,sql,...)
-		print(session,address,sql)
         local ok,err = pcall(do_sql, session, address, sql, ...)
         if not ok then
             if is_conn_err(err) then
