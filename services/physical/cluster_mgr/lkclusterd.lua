@@ -98,29 +98,29 @@ end
 local request_fd = {}
 
 function command.socket(source,subcmd,fd,data)
-	if subcmd == "data" then
-	   local addr,session, msg = cluster.unpackrequest(data)
-	   local no_response = (session&1) == 0
-	   if no_response then
-	   	   return skynet.rawsend(addr, "lua", msg)
-	   end
-	   local ok,sz
-	   ok,msg,sz = pcall(skynet.rawcall,addr,"lua", msg)
+	-- if subcmd == "data" then
+	--    local addr,session, msg = cluster.unpackrequest(data)
+	--    local no_response = (session&1) == 0
+	--    if no_response then
+	--    	   return skynet.rawsend(addr, "lua", msg)
+	--    end
+	--    local ok,sz
+	--    ok,msg,sz = pcall(skynet.rawcall,addr,"lua", msg)
 
-	   local response
-	   if sz and sz >= 0x10000 then
-	   	   response = cluster.pakcreponse(session,false,"response too big")
-	   elseif ok then
-	   	   response = cluster.pakcreponse(session,true,msg,sz)
-	   else
-	   	   response = cluster.pakcreponse(session,false,msg)
-	   end
-	   socket.write(fd,response)
-	elseif subcmd == "open" then
-		skynet.call(source, "lua", "accept", fd)
-    else
-    	skynet.error(string.format("socket %s %d : %d", subcmd, fd, data))
-	end
+	--    local response
+	--    if sz and sz >= 0x10000 then
+	--    	   response = cluster.pakcreponse(session,false,"response too big")
+	--    elseif ok then
+	--    	   response = cluster.pakcreponse(session,true,msg,sz)
+	--    else
+	--    	   response = cluster.pakcreponse(session,false,msg)
+	--    end
+	--    socket.write(fd,response)
+	-- elseif subcmd == "open" then
+	-- 	skynet.call(source, "lua", "accept", fd)
+ --    else
+ --    	skynet.error(string.format("socket %s %d : %d", subcmd, fd, data))
+	-- end
 end
 
 skynet.start(function() 
