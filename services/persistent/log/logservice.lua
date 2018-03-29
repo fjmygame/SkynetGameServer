@@ -148,12 +148,11 @@ function command.log(source,level,msg)
 
 	if logfile ~= nil then
 		local tmpMsg = string.format("[%08x]%s", source, msg)
-		print(tmpMsg)
-		local cMsg = string.format("%s[:%08x]%s%s", const.log_color[level], msg, const.log_color[-1])
+		-- local cMsg = string.format("%s[:%08x]%s%s", const.log_color[level], msg, const.log_color[-1])
         
-        print(cMsg)
-		io.write(cMsg)
-		io.flush()
+  --       print(cMsg)
+		-- io.write(cMsg)
+		-- io.flush()
 
 		logfile:write(tmpMsg)
 		logfile:flush()
