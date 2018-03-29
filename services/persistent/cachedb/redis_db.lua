@@ -33,6 +33,22 @@ local cmdStat = {
 }
 
 local function doCmdStat(cmd,startTime,endTime)
+    local costTime = endTime - startTime
+    cmdStat.total.cnt = cmdStat.total.cnt + 1
+    cmdStat.total.time = cmdStat.total.time + costTime
+    cmdStat.total.avg = cmdStat.total.time / cmdStat.total.cnt
+
+    if not cmdStat.cmds[cmd] then
+    	cmdStat.cmds[cmd] = {}
+    	cmdStat.cmds[cmd].cnt = 0
+    	cmdStat.cmds[cmd].time = 0.0
+    	cmdStat.cmds[cmd].avg = 0.0
+    end
+
+    local theCmd = cmdStat.cmds[cmd]
+    theCmd.cnt = theCmd.cnt + 1
+	theCmd.time = theCmd.time + costTime
+	theCmd.avg = theCmd.time / theCmd.cnt
 end
 
 skynet.start(function() 
