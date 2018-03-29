@@ -3,7 +3,7 @@ local const = require "logger_const"
 
 local logger = {}
 local logcmd = {}
-local logLevel = const_log_level.debug
+local logLevel = const.log_level.debug
 
 do
     local level = skynet.getenv("loglevel")
