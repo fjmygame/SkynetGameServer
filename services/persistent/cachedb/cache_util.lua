@@ -93,7 +93,7 @@ function cache_util.call(dbname, cache_name, args)
 
             --写入缓存
             if sqlcache ~= nil then
-            	local seriredis = cjson.decode(sqlcache)
+            	local seriredis = cjson.encode(sqlcache)
             	local rds
         	    if cacheconf.expire then
 		           rds = redis_util.querycmd("SETEX",rdskey,cacheconf.expire,seriredis)
