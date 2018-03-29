@@ -57,7 +57,7 @@ skynet.start(function()
 	    doCmdStat(cmd,sTime,skynet.time())
 	end)
 
-	db = redis.connect(conf)
+	-- db = redis.connect(conf)
     --skynet.infofunc(dbginfo)
 	skynet.register(server_id)
 
