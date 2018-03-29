@@ -116,11 +116,9 @@ local function updateCluster()
         end
     end
 
-    -- if cluster_cfg_mgr:set_all(allConf) then
-    -- 	cluster.reload(allConf)
-    -- end
-    print("XXXXXXXXXXXXX")
-    print(allConf)
+    if cluster_cfg_mgr:set_all(allConf) then
+    	cluster.reload(allConf)
+    end
     cluster.reload(allConf)
 
     return allConf
