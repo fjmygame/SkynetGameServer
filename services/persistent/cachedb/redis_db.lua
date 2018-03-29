@@ -18,7 +18,8 @@ end
 
 local conf = {
 	host = redis_host,
-	port = redis_port
+	port = redis_port,
+	auth = nil
 }
 
 local db
