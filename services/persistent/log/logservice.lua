@@ -110,7 +110,7 @@ local function checkForRename()
     end
 
     local fileSize = getFileSize()
-    if filePath >= maxLogFileSize then
+    if fileSize >= maxLogFileSize then
         local dateStr = os.date("%Y%m%d", curTime)
     	local savePath = chooseSavePath(logFilePath, dateStr)
 
