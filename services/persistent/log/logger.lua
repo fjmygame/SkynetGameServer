@@ -7,7 +7,7 @@ local logLevel = const.log_level.debug
 
 do
     local level = skynet.getenv("loglevel")
-    if level and const_log_level[level] then
+    if level and const.log_level[level] then
    	    logLevel = const.log_level[level]
     end
 
