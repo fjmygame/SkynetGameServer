@@ -147,6 +147,7 @@ function command.log(source,level,msg)
 	checkForRename()
 
 	if logfile ~= nil then
+		print(const.log_color[-1])
 		local tmpMsg = string.format("[%08x]%s", source, msg)
 		local cMsg = string.format("%s[:%08x]%s%s", const.log_color[level], msg, const.log_color[-1])
 
