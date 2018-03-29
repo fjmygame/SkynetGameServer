@@ -6,3 +6,5 @@ package.path="../services/persistent/cachedb/?.lua;"..package.path
 package.path="lualib/?.lua;lualib/?/init.lua;"..package.path
 package.path="../proto/?.lua;"..package.path
 package.path="../dbcache/?.lua;"..package.path
+
+--根据gameid加载kindId的文件
