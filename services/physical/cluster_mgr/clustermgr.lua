@@ -170,6 +170,10 @@ skynet.start(function()
     if not redisDb then
     end
 
+    if redisDb then
+    	print("success redisDB")
+    end
+
     if nodeEndpoint then
         local clusterd = skynet.uniqueservice("lkclusterd")
         skynet.call(clusterd, "lua", "listen", nodeLocalIp, nodePort)
