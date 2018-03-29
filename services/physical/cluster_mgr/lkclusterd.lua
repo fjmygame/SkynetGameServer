@@ -34,6 +34,7 @@ local node_channel = setmetatable({}, {_index = open_channel})
 local function loadconfig(config)
    if not config then return end
    for name,address in pairs(config) do
+   	   print(name,address)
        if node_address[name] ~= address then
        	  if rawget(node_channel, name) then
        	  	 node_channel[name] = nil
@@ -64,6 +65,7 @@ local function send_request(no_response, source, node,  addr, msg, sz)
     local request,_,padding = cluster.packrequest(addr, dsession, msg, sz)
     if node then
     	node_session[node] = session < 0x3fffffff and session + 1 or 1
+    	print(node)
     	local c = node_channel[node]
     	if no_response then dsession = nil end
     	return c:request(request, dsession, padding)
