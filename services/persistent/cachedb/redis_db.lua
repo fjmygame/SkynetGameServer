@@ -75,7 +75,7 @@ skynet.start(function()
 	end)
 
 	db = redis.connect(conf)
-	logger.err("redisdb connect")
+	
     --skynet.infofunc(dbginfo)
 	skynet.register(server_id)
 

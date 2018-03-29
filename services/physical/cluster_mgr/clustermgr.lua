@@ -17,7 +17,7 @@ if nodeName then
     nodeIp = assert(skynet.getenv("nodeip"), "Set proper ip, please!")
     nodePort = assert(tonumber(skynet.getenv("nodeport")), "Set proper port, please!")
     nodeLocalIp = skynet.getenv("nodelocalip") or "0.0.0.0"
-    nodeEndpoint = string.format("%s:%s", nodeip, nodeport)
+    nodeEndpoint = string.format("%s:%s", nodeIp, nodePort)
 end
 
 local cluster_cfg_mgr = (require "cluster_cfg_mgr").new(clusterFilePath, {})
@@ -168,10 +168,6 @@ skynet.start(function()
     }
 
     if not redisDb then
-    end
-
-    if redisDb then
-    	print("success redisDB")
     end
 
     if nodeEndpoint then
