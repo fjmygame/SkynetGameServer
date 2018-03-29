@@ -1,5 +1,6 @@
 local skynet = require "skynet"
 local redis = require "redis"
+local logger = require "logger"
 
 require "skynet.manager"
 
@@ -74,6 +75,7 @@ skynet.start(function()
 	end)
 
 	db = redis.connect(conf)
+	logger.err("redisdb connect")
     --skynet.infofunc(dbginfo)
 	skynet.register(server_id)
 
