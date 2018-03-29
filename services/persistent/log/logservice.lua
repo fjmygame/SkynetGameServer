@@ -69,7 +69,7 @@ local function rollLog(savePath)
 	logfile = io.open(logFilePath, "a+")
 	if not logfile then
 	end
-	
+
 end
 
 local function chooseSavePath(savePath,dataStr)
@@ -112,7 +112,7 @@ local function checkForRename()
     local fileSize = getFileSize()
     if filePath >= maxLogFileSize then
         local dateStr = os.date("%Y%m%d", curTime)
-    	local savePath = savePath = chooseSavePath(logFilePath, dateStr)
+    	local savePath = chooseSavePath(logFilePath, dateStr)
 
     	if savePath then
     		rollLog(savePath)
