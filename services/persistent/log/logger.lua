@@ -52,23 +52,23 @@ local function log(level,fmt,...)
 end
 
 function logger.debug(fmt,...)
-	log(const_log_level.debug,fmt,...)
+	log(const.log_level.debug,fmt,...)
 end
 
 function logger.info(fmt,...)
-	log(const_log_level.info,fmt,...)
+	log(const.log_level.info,fmt,...)
 end
 
 function logger.warn(fmt,...)
-	log(const_log_level.warn,fmt,...)
+	log(const.log_level.warn,fmt,...)
 end
 
 function logger.err(fmt,...)
-	log(const_log_level.err,fmt,...)
+	log(const.log_level.err,fmt,...)
 end
 
 function logger.fatal(fmt,...)
-	log(const_log_level.fatal,fmt,...)
+	log(const.log_level.fatal,fmt,...)
 end
 
 local function _log_dispatch(session,address,cmd,...)
