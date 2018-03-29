@@ -57,7 +57,11 @@ skynet.start(function()
 	    doCmdStat(cmd,sTime,skynet.time())
 	end)
 
-	-- db = redis.connect(conf)
+	db = redis.connect{
+        host = skynet.getenv("cluster_redis_host") or skynet.getenv("redis_host"),
+        port = skynet.getenv("cluster_redis_port") or skynet.getenv("redis_port"),
+        auth = skynet.getenv("cluster_redis_auth") or skynet.getenv("redis_auth"),
+    }
     --skynet.infofunc(dbginfo)
 	skynet.register(server_id)
 

@@ -57,7 +57,6 @@ local function do_sql(session, address, sql, ...)
    end
 
    if session ~= 0 then
-   	  print("sql response")
       skynet.ret(skynet.pack(result))
    end
 
