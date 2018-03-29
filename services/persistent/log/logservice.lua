@@ -170,6 +170,11 @@ function command.set_log_level(source,level)
 	return setLogLevel(level)
 end
 
+function command.test_log()
+    print("command.test_log")
+    return {true}
+end
+
 skynet.start(function() 
     skynet.dispatch("lua", function(session, address, cmd, ...)
     	local f = command[string.lower(cmd)]

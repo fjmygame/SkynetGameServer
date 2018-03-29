@@ -1,6 +1,7 @@
 local skynet = require "skynet"
 local redis = require "redis"
 local logger = require "logger"
+local clustermc = require "clustermc"
 
 require "skynet.manager"
 
@@ -75,7 +76,9 @@ skynet.start(function()
 	end)
 
 	db = redis.connect(conf)
-	
+
+	clustermc.call("pandamjserver",".logservice","test_log",1)
+
     --skynet.infofunc(dbginfo)
 	skynet.register(server_id)
 
