@@ -77,7 +77,7 @@ skynet.start(function()
 
 	db = redis.connect(conf)
 
-	clustermc.call("pandamjserver",".logservice","test_log",1)
+	-- clustermc.call("pandamjserver",".logservice","test_log",1)
 
     --skynet.infofunc(dbginfo)
 	skynet.register(server_id)
